@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --c-primary: rgb(209, 197, 173);
+  --c-secondary: rgba(200, 200, 200, 0.85);
+  --c-tertiary: hsl(88, 25%, 11%, 0.5);
+  --c-fourth: hsl(88, 28%, 6%, 0.65);
+  --v-space: 5.5rem;
+  --f-weight: 600;
+  --border-radius: min(10vw, var(--v-space));
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  background: rgb(15, 15, 16);
+  font-family: "Plus Jakarta Sans", "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--c-secondary);
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(15, 15, 16);
+  color: var(--c-secondary);
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--c-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: var(--f-weight);
+  transition: opacity 0.15s ease;
+}
+
+a:hover {
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+/* Danny Garcia Typography */
+.type-primary {
+  font-weight: var(--f-weight);
+  font-size: 2.75rem;
+  line-height: 1.35;
+  color: var(--c-secondary);
+  letter-spacing: -0.015em;
+}
+
+.type-secondary {
+  font-weight: var(--f-weight);
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: var(--c-secondary);
+  opacity: 0.75;
+}
+
+.type-header {
+  font-weight: var(--f-weight);
+  font-size: 1.85rem;
+  line-height: 1.4;
+  text-align: center;
+  font-variant-caps: all-petite-caps;
+  letter-spacing: 0.06em;
+  color: var(--c-primary);
+}
+
+/* Danny Garcia Main Grid */
+main.dg-main {
+  display: grid;
+  grid-template-columns: 1fr 6fr 4fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". header header ."
+    ". intro . ."
+    ". games games ."
+    ". work work ."
+    ". stack stack ."
+    "footer footer footer footer";
+}
+
+.dg-logo {
+  margin: var(--v-space) 0 0 0;
+  grid-area: header;
+  align-self: end;
+  z-index: 2;
+}
+
+.dg-logo a {
+  font-size: 6.2rem;
+  font-weight: 700;
+  line-height: 0.85;
+  text-decoration: none;
+  color: var(--c-primary);
+  display: inline-block;
+  letter-spacing: -0.03em;
+}
+
+.dg-intro {
+  margin: var(--v-space) 0;
+  grid-area: intro;
+  align-self: end;
+  z-index: 2;
+  text-wrap: pretty;
+}
+
+.games-timeline {
+  grid-area: games;
+  margin-top: calc(var(--v-space) * 0.5);
+  margin-bottom: var(--v-space);
+}
+
+.work-timeline {
+  grid-area: work;
+  margin-bottom: var(--v-space);
+}
+
+.stack-timeline {
+  grid-area: stack;
+  margin-bottom: var(--v-space);
+}
+
+/* Danny Garcia Timeline Entry */
+.timeline-entry {
+  z-index: 2;
+  background: var(--c-tertiary);
+  backdrop-filter: saturate(180%) blur(40px);
+  -webkit-backdrop-filter: saturate(180%) blur(40px);
+  position: relative;
+  padding: calc(var(--v-space) / 2) 0 var(--v-space);
+  display: grid;
+  grid-template-columns: 1fr 5fr 5fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". co description .";
+  text-wrap: pretty;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.timeline-header {
+  padding: 0 0 calc(var(--v-space) / 2);
+  grid-template-areas: ". co co .";
+  background: var(--c-fourth);
+  backdrop-filter: saturate(180%) blur(60px);
+  border-bottom: none;
+}
+
+.timeline-entry:first-child {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.timeline-entry:last-child {
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  border-bottom: none;
+}
+
+.timeline-co {
+  margin: calc(var(--v-space) * 0.4) 0 0;
+  grid-area: co;
+  padding-right: 2.5rem;
+}
+
+.timeline-co a {
+  color: var(--c-primary);
+  text-decoration: none;
+}
+
+.timeline-co a:hover {
+  text-decoration: underline;
+}
+
+.timeline-time {
+  display: block;
+  font-style: oblique;
+  font-size: 1.15rem;
+  opacity: 0.65;
+  margin-top: 0.35rem;
+  font-weight: 500;
+}
+
+.timeline-description {
+  margin: calc(var(--v-space) * 0.4) 0 0;
+  font-weight: normal;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  grid-area: description;
+  color: var(--c-secondary);
+}
+
+.timeline-description p {
+  margin-bottom: 1.25rem;
+}
+
+.timeline-description p:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-description ul {
+  margin: 0.75rem 0 1.25rem 1.25rem;
+  list-style-type: disc;
+}
+
+.timeline-description li {
+  margin-bottom: 0.5rem;
+}
+
+footer.dg-footer {
+  grid-area: footer;
+  display: grid;
+  grid-template-columns: 1fr 5fr 5fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    ". p p .";
+  z-index: 2;
+  background: var(--c-fourth);
+  backdrop-filter: saturate(180%) blur(50px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+footer.dg-footer .footer-content {
+  padding: var(--v-space) 0;
+  font-weight: var(--f-weight);
+  font-size: 1.5rem;
+  line-height: 1.5;
+  grid-area: p;
+  color: var(--c-secondary);
+}
+
+/* Game Cards */
+.game-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
+}
+
+.game-cover {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.game-cover img {
+  transition: transform 0.6s ease;
+}
+
+.game-cover:hover img {
+  transform: scale(1.06);
+}
+
+.game-cover-play {
+  transition: transform 0.3s ease;
+}
+
+.game-cover:hover .game-cover-play {
+  transform: scale(1.1);
+}
+
+@keyframes game-cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3), 0 10px 30px rgba(0, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0), 0 10px 30px rgba(0, 0, 0, 0.5); }
+}
+
+.game-play-btn {
+  animation: game-cta-pulse 2.4s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+
+.game-play-btn:hover {
+  animation-play-state: paused;
+  transform: scale(1.04);
+}
+
+/* Responsive Breakpoints matching Danny's */
+@media only screen and (max-width: 834px) {
+  :root {
+    --v-space: 4rem;
+  }
+  html {
+    font-size: 14px;
+  }
+  main.dg-main {
+    grid-template-columns: 1fr 8fr 2fr 1fr;
+  }
+  .dg-logo a {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  :root {
+    --v-space: 2.75rem;
+  }
+  html {
+    font-size: 13.5px;
+  }
+  main.dg-main {
+    grid-template-columns: 1fr 10fr 0fr 1fr;
+  }
+  .dg-logo a {
+    font-size: 3.75rem;
+    line-height: 0.9;
+  }
+  .timeline-entry {
+    grid-template-columns: 1fr 5fr 5fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ". co co ."
+      ". description description .";
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .timeline-co {
+    padding-right: 0;
+    margin-bottom: 0.75rem;
+  }
+  .type-primary {
+    font-size: 2.1rem;
+    line-height: 1.3;
+  }
+  .timeline-description {
+    font-size: 1.15rem;
+    margin-top: 0;
+  }
+  footer.dg-footer .footer-content {
+    font-size: 1.25rem;
+  }
+}
